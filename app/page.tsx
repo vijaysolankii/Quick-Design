@@ -1,6 +1,10 @@
+"use client"
 import Image from "next/image";
 import { Room } from "./Room";
+import Live from "@/components/Live";
 
 export default function Home() {
-  return <h1 className="text-5xl text-white">Welcome to Quick Design</h1>;
+  return <div>
+    <Live />
+  </div>;
 }
