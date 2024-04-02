@@ -4,6 +4,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import CursorChat from "./Cursor/CursorChat";
 import { CursorMode,CursorChatProps, Reaction, CursorState } from "@/types/type";
 import ReactionSelector from "./Reaction/ReactionButton";
+import FlyingReaction from "./Reaction/FlyingReaction";
+import useInterval from "@/hooks/useInterval";
 
 const Live = () => {
   const others = useOthers();
@@ -45,6 +47,18 @@ const Live = () => {
   const setReactions = useCallback((reaction:string) => {
     setCursorState({mode:CursorMode.Reaction,reaction,isPressed:true})
   },[])
+
+  useInterval(()=> {
+    if(cursorState.mode === CursorMode.Reaction && cursor && cursorState.isPressed){
+      setReaction(reaction => reaction.concat([
+        {
+          point: {x: cursor.x,y:cursor.y},
+          value: cursorState.reaction,
+          timestamp: Date.now()
+        }
+      ]))
+    }
+  },100)
 
   useEffect(() => {
     const onKeyUp = (e:React.KeyboardEvent) => {
@@ -103,7 +117,17 @@ const Live = () => {
           />
         )
       }
-
+      {
+        reaction.map(r => (
+          <FlyingReaction 
+            key={r.timestamp.toString()}
+            x= {r.point.x}
+            y= {r.point.y}
+            timestamp={r.timestamp}
+            value={r.value}
+          />
+        ))
+      }
       <LiveCursors others={others} />
     </div>
   );
