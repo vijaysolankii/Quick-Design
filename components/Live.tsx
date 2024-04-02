@@ -1,8 +1,8 @@
-import { useMyPresence, useOthers } from "@/liveblocks.config";
+import { useBroadcastEvent, useEventListener, useMyPresence, useOthers } from "@/liveblocks.config";
 import LiveCursors from "./Cursor/LiveCursors";
 import React, { useCallback, useEffect, useState } from "react";
 import CursorChat from "./Cursor/CursorChat";
-import { CursorMode,CursorChatProps, Reaction, CursorState } from "@/types/type";
+import { CursorMode,CursorChatProps, Reaction, CursorState, ReactionEvent } from "@/types/type";
 import ReactionSelector from "./Reaction/ReactionButton";
 import FlyingReaction from "./Reaction/FlyingReaction";
 import useInterval from "@/hooks/useInterval";
@@ -13,6 +13,8 @@ const Live = () => {
   const [cursorState, setCursorState] = useState<CursorState>({
     mode: CursorMode.Hidden,
   });
+
+  const broadcast = useBroadcastEvent();
 
   const [reaction, setReaction] = useState<Reaction[]>([])
 
@@ -57,8 +59,30 @@ const Live = () => {
           timestamp: Date.now()
         }
       ]))
+      broadcast({
+        x : cursor.x,
+        y : cursor.y,
+        value : cursorState.reaction,
+      })
     }
   },100)
+
+
+  useInterval(() => {
+    setReaction((reaction)=> reaction.filter((r) => r.timestamp > Date.now() - 4000))
+  } ,1000)
+
+  useEventListener((eventData)=>{
+    const event = eventData.event as ReactionEvent
+
+    setReaction((reaction)=> reaction.concat([
+      {
+        point : {x: event.x,y:event.y},
+        value: event.value,
+        timestamp : Date.now()
+      }
+    ]))
+  })
 
   useEffect(() => {
     const onKeyUp = (e:React.KeyboardEvent) => {
