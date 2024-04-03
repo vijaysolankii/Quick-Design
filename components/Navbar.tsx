@@ -8,7 +8,7 @@ import { NavbarProps } from "@/types/type";
 
 const Navbar = () => {
   return (
-    <nav className="flex select-none items-center justify-between gap-4 bg-primary-black px-5 text-white">
+    <nav className="flex select-none items-center justify-between gap-4 bg-primary-black px-5 text-white py-3">
         <Image src="/assets/logo.svg" alt="FigPro Logo" width={58} height={20} />
         <ActiveUsers />
     </nav>

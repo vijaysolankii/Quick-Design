@@ -1,13 +1,15 @@
-"use client"
-import Image from "next/image";
-import { Room } from "./Room";
+"use client";
+
 import Live from "@/components/Live";
 import Navbar from "@/components/Navbar";
 
-
 export default function Home() {
-  return <div>
-    <Navbar />
-    <Live />
-  </div>;
+  return (
+    <main className="h-screen overflow-hidden">
+      <Navbar />
+      <section className="flex h-full flex-row">
+        <Live />
+      </section>
+    </main>
+  );
 }
