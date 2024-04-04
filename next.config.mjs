@@ -1,13 +1,7 @@
+import './src/env.mjs';
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-  // webpack: (config) => {
-  //   config.externals.push({
-  //     sharp: 'commonjs sharp',
-  //     canvas: "commonjs canvas",
-  //   });
-  //   // config.infrastructureLogging = { debug: /PackFileCache/ };
-  //   return config;
-  // },
   webpack: (
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
@@ -15,7 +9,6 @@ const nextConfig = {
     config.externals.push({ canvas: 'commonjs canvas' })
     return config
   },
-
   images: {
     remotePatterns: [
       {
@@ -25,6 +18,6 @@ const nextConfig = {
       },
     ],
   },
-  // webpack: (config) => { config.externals.push({ sharp: 'commonjs sharp', canvas: 'commonjs canvas' })}
 };
+
 export default nextConfig;

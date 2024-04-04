@@ -40,6 +40,7 @@ export default function Home() {
   });
 
   return (
+    <>
     <main className="h-screen overflow-hidden">
       <Navbar />
       <section className="flex h-full flex-row">
@@ -48,5 +49,6 @@ export default function Home() {
         <RightSidebar />
       </section>
     </main>
+    </>
   );
 }

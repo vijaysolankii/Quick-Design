@@ -137,7 +137,7 @@ const Live = ({canvasRef} : Props) => {
       )}
 
 
-      <canvas id="canvas" ref={canvasRef} />
+      {/* <canvas id="canvas" ref={canvasRef} /> */}
       
       {
         cursorState.mode === CursorMode.ReactionSelector && (
