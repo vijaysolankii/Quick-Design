@@ -8,7 +8,7 @@ import FlyingReaction from "./Reaction/FlyingReaction";
 import useInterval from "@/hooks/useInterval";
 
 type Props = {
-  canvasRef : React.MutableRefObject<HTMLCanvasElement | null>
+  canvasRef : React.MutableRefObject<HTMLCanvasElement | null>;
 }
 
 const Live = ({canvasRef} : Props) => {
@@ -120,7 +120,7 @@ const Live = ({canvasRef} : Props) => {
 
   return (
     <div
-      id="canvas"
+      
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onPointerDown={handlePointerDown}
@@ -137,7 +137,7 @@ const Live = ({canvasRef} : Props) => {
       )}
 
 
-      <canvas ref={canvasRef} />
+      <canvas id="canvas" ref={canvasRef} />
       
       {
         cursorState.mode === CursorMode.ReactionSelector && (

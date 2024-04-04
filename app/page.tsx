@@ -1,6 +1,6 @@
 "use client";
 
-import { fabric } from "fabric"  ;
+import { fabric } from "fabric";
 import Live from "@/components/Live";
 import Navbar from "@/components/Navbar";
 import LeftSidebar from "@/components/LeftSidebar";
@@ -28,9 +28,9 @@ export default function Home() {
       handleCanvasMouseDown({
         options,
         canvas, 
+        selectedShapeRef,
         isDrawing,
         shapeRef,
-        selectedShapeRef,
       });
     });
   },[])
@@ -44,7 +44,7 @@ export default function Home() {
       <Navbar />
       <section className="flex h-full flex-row">
         <LeftSidebar />
-        <Live canvasRef = {canvasRef} />
+        <Live canvasRef={canvasRef} />
         <RightSidebar />
       </section>
     </main>
