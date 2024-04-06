@@ -7,11 +7,12 @@ import ReactionSelector from "./Reaction/ReactionButton";
 import FlyingReaction from "./Reaction/FlyingReaction";
 import useInterval from "@/hooks/useInterval";
 
-type Props = {
-  canvasRef : React.MutableRefObject<HTMLCanvasElement | null>;
-}
+// type Props = {
+//   canvasRef : React.MutableRefObject<HTMLCanvasElement | null>;
+// }
+// {canvasRef} : Props
 
-const Live = ({canvasRef} : Props) => {
+const Live = () => {
   const others = useOthers();
   const [{ cursor }, updateMyPresence] = useMyPresence() as any;
   const [cursorState, setCursorState] = useState<CursorState>({
