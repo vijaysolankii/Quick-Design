@@ -182,6 +182,7 @@ const Live = ({ canvasRef }: Props) => {
           value={r.value}
         />
       ))}
+      {/* Live Chat Functoinality need to wrote */}
       <LiveCursors others={others} />
     </div>
   );
