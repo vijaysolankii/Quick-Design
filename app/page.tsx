@@ -57,6 +57,7 @@ const Home = () => {
       <Navbar />
       <section className="flex h-full flex-row">
         <LeftSidebar />
+        {/* Canvas file need to change */}
         <Live canvasRef={canvasRef} />
         <RightSidebar />
       </section>
