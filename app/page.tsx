@@ -19,7 +19,7 @@ const Home = () => {
   const fabricRef = useRef<fabric.Canvas | null>(null);
   const isDrawing = useRef(false);
   const shapeRef = useRef<fabric.Object | null>(null);
-  const selectedShapeRef = useRef<string | null>(null);
+  const selectedShapeRef = useRef<string | null>('ractangle');
 
 
   useEffect(() => {
