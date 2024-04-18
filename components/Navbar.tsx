@@ -20,6 +20,8 @@ const Navbar = () => {
                 {
                   Array.isArray(item.name) ? (
                     <ShapeMenu />
+
+                    // resized all elements on drag
                   ) : item?.value === 'comments' ? (
                     <NewThread></NewThread>
                   ) : (
