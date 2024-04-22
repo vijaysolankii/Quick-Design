@@ -26,6 +26,7 @@ const Home = () => {
     const canvas = initializeFabric({ canvasRef, fabricRef });
   
     
+    // Canvas init functionality
     canvas.on("mouse:down", (options) => {
       handleCanvasMouseDown({
         options,
@@ -35,6 +36,8 @@ const Home = () => {
         shapeRef,
       });
     });
+
+
     window.addEventListener("resize", () => {
       handleResize({ canvas: fabricRef.current, });
     });
