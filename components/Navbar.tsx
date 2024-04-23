@@ -19,6 +19,7 @@ const Navbar = () => {
               <li>
                 {
                   Array.isArray(item.name) ? (
+                    // Shapes will go here with customization
                     <ShapeMenu />
                   ) : item?.value === 'comments' ? (
                     <NewThread></NewThread>
