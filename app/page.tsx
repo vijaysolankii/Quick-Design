@@ -38,6 +38,7 @@ const Home = () => {
     });
 
 
+    // Keep it up we can do it viju 
     window.addEventListener("resize", () => {
       handleResize({ canvas: fabricRef.current, });
     });
