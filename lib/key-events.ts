@@ -124,6 +124,8 @@ export const handleKeyDown = ({
     redo();
   }
 
+
+  // Added redo and undo using shiftkey
   if (e.keyCode === 191 && !e.shiftKey) {
     e.preventDefault();
   }
