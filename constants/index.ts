@@ -33,6 +33,7 @@ export const shapeElements = [
   },
 ];
 
+// Redefined new elements for figpro
 export const navElements = [
   {
     icon: "/assets/select.svg",
